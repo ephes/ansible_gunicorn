@@ -1,0 +1,20 @@
+description "Gunicorn server for {{ project_name }}"
+
+start on net-device-up
+stop on shutdown
+
+respawn
+
+chdir {{ django_dir }}
+exec {{ virtualenv_dir }}/bin/gunicorn \
+    --bind 127.0.0.1:8080 \
+    --workers {{ gunicorn_num_workers }} \
+    --max-requests {{ gunicorn_max_requests }} \
+    --user {{ gunicorn_user }} \
+    --access-logfile /home/konektom/gunicorn_access.log \
+    --error-logfile /home/konektom/gunicorn_error.log \
+    --env SECRET_KEY={{ SECRET_KEY }} \
+    --env EMAIL_HOST={{ EMAIL_HOST }} \
+    --env EMAIL_HOST_USER={{ EMAIL_HOST_USER }} \
+    --env EMAIL_HOST_PASSWORD={{ EMAIL_HOST_PASSWORD }} \
+    {{ project_name }}.wsgi:application
