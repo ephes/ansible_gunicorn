@@ -2,10 +2,10 @@
 - name: write gunicorn init script
   sudo: yes
   template: src=gunicorn-upstart.conf.j2
-            dest=/etc/init/konektom-gunicorn.conf
+            dest=/etc/init/gunicorn.conf
   notify:
     - restart gunicorn
 
 - name: make sure gunicorn is running
   sudo: yes
-  service: name=konektom-gunicorn state=running
+  service: name=gunicorn state=running
