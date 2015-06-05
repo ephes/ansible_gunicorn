@@ -2,7 +2,7 @@
 # handlers file for roles/gunicorn
 
 - name: restart gunicorn
-  service:  name=konektom-gunicorn state={{ item }}
+  service:  name=gunicorn state={{ item }}
   sudo: yes
   with_items:
     - stopped
