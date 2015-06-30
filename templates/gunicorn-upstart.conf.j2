@@ -22,4 +22,5 @@ exec {{ virtualenv_dir }}/bin/gunicorn \
     --env DATABASE_URL=postgres://localhost/{{ database_name }} \
     --env SENDGRID_USERNAME={{ SENDGRID_USERNAME }} \
     --env SENDGRID_PASSWORD={{ SENDGRID_PASSWORD }} \
+    --env DJANGO_LOGFILE_PATH={{ DJANGO_LOGFILE_PATH }} \
     config.wsgi:application
