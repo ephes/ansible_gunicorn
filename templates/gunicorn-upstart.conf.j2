@@ -10,6 +10,7 @@ exec {{ virtualenv_dir }}/bin/gunicorn \
     --bind 127.0.0.1:8080 \
     --workers {{ gunicorn_num_workers }} \
     --max-requests {{ gunicorn_max_requests }} \
+    --timeout 120 \
     --user {{ gunicorn_user }} \
     --access-logfile {{ webapp_dir }}/gunicorn_access.log \
     --error-logfile {{ webapp_dir }}/gunicorn_error.log \
