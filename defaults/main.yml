@@ -1,0 +1,4 @@
+--- 
+gunicorn_num_workers: 5
+gunicorn_max_requests: 1000
+gunicorn_user: "{{ user }}"
