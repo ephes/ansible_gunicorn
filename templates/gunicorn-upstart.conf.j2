@@ -14,8 +14,8 @@ exec {{ virtualenv_dir }}/bin/gunicorn \
     --user {{ gunicorn_user }} \
     --access-logfile {{ webapp_dir }}/gunicorn_access.log \
     --error-logfile {{ webapp_dir }}/gunicorn_error.log \
-    --env SECRET_KEY={{ SECRET_KEY }} \
-    --env DJANGO_SECRET_KEY={{ SECRET_KEY }} \
+    --env SECRET_KEY={{ DJANGO_SECRET_KEY }} \
+    --env DJANGO_SECRET_KEY={{ DJANGO_SECRET_KEY }} \
     --env DJANGO_SETTINGS_MODULE={{ django_settings }} \
     --env DJANGO_AWS_ACCESS_KEY_ID={{ DJANGO_AWS_ACCESS_KEY_ID }} \
     --env DJANGO_AWS_SECRET_ACCESS_KEY={{ DJANGO_AWS_SECRET_ACCESS_KEY }} \
